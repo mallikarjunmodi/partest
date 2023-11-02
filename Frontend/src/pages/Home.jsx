@@ -190,6 +190,13 @@ const Home = (props) => {
             flex-direction: column;
             justify-content: flex-start;
             background-color: #f3f9ff;
+            position: relative;
+            top: 0PX;
+            bottom: 0px;
+          }
+          .upper-bar-root-class-name {
+            top: 0px;
+            left: 0px;
           }
           .home-main-body {
             top: 132px;

@@ -51,6 +51,8 @@ const PopUpFrame = (props) => {
             width: 942.88px;
             height: 428px;
             display: flex;
+            top: 0px;
+            left: 0px;
             position: relative;
             align-items: flex-start;
             flex-direction: column;

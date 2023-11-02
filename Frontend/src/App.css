@@ -1,3 +1,16 @@
+.container {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  width: 1024px;
+  bottom: 0px;
+  height: 600px;
+  margin: auto;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+}
 .App {
   text-align: center;
 }

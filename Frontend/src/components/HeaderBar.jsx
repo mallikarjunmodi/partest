@@ -14,7 +14,9 @@ const Header = (props) => {
             width: 1024px;
             height: 32px;
             display: flex;
-            position: relative;
+            position: absolute;
+            top: 0px;
+            left: 0px;
             align-items: flex-start;
             flex-direction: column;
           }
