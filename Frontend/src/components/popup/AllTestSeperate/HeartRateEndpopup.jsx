@@ -13,6 +13,8 @@ function   HeartRateEndpopup(props){
   console.log("props hr",props);
   return (
     <>
+    <div className="-pin-container"> 
+
       <div className="sp-o2stop-container">
         <div className="sp-o2stop-container1">
           <div className="sp-o2stop-html-node">
@@ -51,7 +53,7 @@ function   HeartRateEndpopup(props){
           </div>
         </div>
       </div>
-     
+     </div>
     </>
   )
 }

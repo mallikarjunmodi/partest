@@ -20,7 +20,7 @@ console.log("props here",props.data);
               }}
             />
           </div>
-          <button className="bp-stop-button button" onClick={props.onStopClick}>Stop</button>
+          <button className="bp-stop-button button" onClick={props.onExitClick}>Stop</button>
           <div className="bp-stop-container2">
           <div >
          <CircularProgressBar data={props.data} value={40} type="bp" />
@@ -29,7 +29,7 @@ console.log("props here",props.data);
               <span>mmHg</span>
               <br></br>
             </span>
-            <span className="bp-stop-text3">{props.sp02_reading11}</span>
+            {/* <span className="bp-stop-text3">{props.sp02_reading11}</span> */}
     
             <div className="bp_division__bar"> 
               <span 

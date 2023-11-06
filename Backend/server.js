@@ -45,7 +45,7 @@ const realm = await Realm.open({
         
     // }); 
     const tasks = realm.objects("sensorschema");
-    console.log(`The lists of tasks are: ${tasks.map((task) => task. _idUser)}`);
+    // console.log(`The lists of tasks are: ${tasks.map((task) => task. _idUser)}`);
 
 
   // app.post('/create', function(req, res) {

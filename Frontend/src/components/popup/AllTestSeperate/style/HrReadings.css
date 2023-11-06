@@ -1,18 +1,14 @@
-.h-f-readingsscreen-container {
-    width: 100%;
+.-pin-container {
+    width: 64rem;
+    position:absolute;
     height: 600px;
     display: flex;
-    position: relative;
     align-items: center;
-    flex-direction: column;
     justify-content: center;
-    /* width: 64rem; */
-  position:absolute;
-  justify-content: center;
-  background-color:rgba(0, 0, 0, 0.354);
-  z-index: 200;
+    background-color:rgba(0, 0, 0, 0.354);
+    z-index: 200;
   }
-  .h-f-readingsscreen-container1 {
+  .-pinstruction-container {
     flex: 0 0 auto;
     width: 942.88px;
     height: 428px;
@@ -24,7 +20,7 @@
     justify-content: center;
     background-color: #ffffff;
   }
-  .b-presult-container3 {
+  .b-presult1-container3 {
     top: 0px;
     flex: 0 0 auto;
     left: 0px;
@@ -40,7 +36,7 @@
     justify-content: flex-end;
     background-color: #EFF7F5;
   }
-  .b-presult-container4 {
+  .b-presult1-container4 {
     top: 0px;
     flex: 0 0 auto;
     right: 0px;
@@ -55,7 +51,7 @@
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
-  .b-presult-text {
+  .b-presult1-text {
     top: 37px;
     left: 30px;
     color: rgb(6, 146, 111);
@@ -79,7 +75,7 @@
     justify-content: center;
     background-color: #a1ded0;
   }
-  .b-presult-text01 {
+  .b-presult1-text01 {
     top: 104px;
     left: 35px;
     color: #125873;
@@ -91,7 +87,7 @@
     font-family: Manrope;
     font-weight: 700;
   }
-  .b-presult-text02 {
+  .b-presult1-text02 {
     top: 135px;
     left: 30px;
     color: rgb(57, 57, 57);
@@ -103,15 +99,27 @@
     text-align: left;
     font-weight: 400;
   }
-  .b-presult-container5 {
+  .b-presult1-container5 {
     top: 12px;
     left: 3px;
     position: absolute;
   }
-  .b-presult-container6 {
+  .b-presult1-container6 {
     display: contents;
   }
-  .b-presult-text07 {
+  .b-presult1-text07 {
+    top: 189px;
+    left: 300px;
+    color: rgb(26, 181, 143);
+    margin: auto;
+    position: absolute;
+    font-size: 64px;
+    font-style: normal;
+    text-align: left;
+    font-family: "Manrope";
+    font-weight: 600;
+  }
+  .b-presult1-text08 {
     top: 30px;
     left: 0px;
     color: #125873;
@@ -123,32 +131,20 @@
     text-align: center;
     font-weight: 700;
   }
-  .b-presult-text08 {
+  .b-presult1-text09 {
     top: 164px;
-    left: 325px;
+    left: 303px;
     color: rgb(114, 114, 114);
     margin: auto;
     position: absolute;
     font-size: 14px;
     font-style: normal;
     text-align: left;
-    font-family: Manrope;
+    font-family: "Manrope";
     font-weight: 400;
   }
-  .b-presult-text09 {
-    top: 180px;
-    left: 322px;
-    color: rgb(26, 181, 143);
-    margin: auto;
-    position: absolute;
-    font-size: 64px;
-    font-style: normal;
-    text-align: left;
-    font-family: Manrope;
-    font-weight: 600;
-  }
-  .b-presult-text10 {
-    top: 180px;
+  .b-presult1-text10 {
+    top: 189px;
     left: 149px;
     color: rgb(26, 181, 143);
     margin: auto;
@@ -156,22 +152,22 @@
     font-size: 64px;
     font-style: normal;
     text-align: left;
-    font-family: Manrope;
+    font-family: "Manrope";
     font-weight: 600;
   }
-  .b-presult-text11 {
+  .b-presult1-text11 {
     top: 273px;
-    left: 327px;
+    left: 305px;
     color: rgb(26, 181, 143);
     margin: auto;
     position: absolute;
     font-size: 14px;
     font-style: normal;
     text-align: left;
-    font-family: Manrope;
+    font-family: "Manrope";
     font-weight: 600;
   }
-  .b-presult-text12 {
+  .b-presult1-text12 {
     top: 273px;
     left: 157px;
     color: rgb(26, 181, 143);
@@ -180,10 +176,10 @@
     font-size: 14px;
     font-style: normal;
     text-align: left;
-    font-family: Manrope;
+    font-family: "Manrope";
     font-weight: 600;
   }
-  .b-presult-text13 {
+  .b-presult1-text13 {
     top: 162px;
     left: 152px;
     color: rgb(114, 114, 114);
@@ -192,10 +188,10 @@
     font-size: 14px;
     font-style: normal;
     text-align: left;
-    font-family: Manrope;
+    font-family: "Manrope";
     font-weight: 400;
   }
-  .b-presult-button {
+  .b-presult1-button {
     left: 200px;
     color: rgb(40, 91, 244);
     width: 240px;
@@ -211,9 +207,9 @@
     border-radius: 10px;
     background-color: var(--dl-color-gray-white);
   }
-  .b-presult-text14 {
-    top: 120px;
-    left: 178px;
+  .b-presult1-text14 {
+    top: 124px;
+    left: 216px;
     color: rgb(26, 181, 143);
     margin: auto;
     position: absolute;
@@ -222,8 +218,9 @@
     text-align: center;
     font-weight: 600;
   }
-  .b-presult-button1 {
+  .b-presult1-button1 {
     color: #ffffff;
+
     right: 200px;
     width: 240px;
     bottom: 11px;

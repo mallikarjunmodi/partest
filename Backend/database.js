@@ -38,6 +38,6 @@ openRealm();
         
     // }); 
     // const tasks = realm.objects("UserSchema");
-    // console.log(`The lists of tasks are: ${tasks.map((task) => task.name)}`);
+    // console.log(`are: ${tasks.map((task) => task.name)}`);
     // realm.close();
     

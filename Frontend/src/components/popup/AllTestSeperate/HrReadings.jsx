@@ -1,19 +1,17 @@
 import React from 'react'
-import "./style/bpReadingPop.css";
-// import DangerousHTML from 'dangerous-html/react'
-import PropTypes from 'prop-types'
+import "./style/HrReadings.css"
+import PropTypes from 'prop-types';
 
-function BpReadingsPop(props){
-    console.log("props",props)
-  return (
-    <>
-      <div className="h-f-readingsscreen-container">
-        <div className="h-f-readingsscreen-container1">
-        <div className="b-presult-container3">
-          <div className="b-presult-container4">
-            <span className="b-presult-text">Your readings are normal</span>
-            <span className="b-presult-text01">AI Diagnosis</span>
-            <span className="b-presult-text02">
+function   HrReadings(props){
+    return(
+        <>
+        <div className="-pin-container"> 
+          <div className="-pinstruction-container">
+          <div className="b-presult1-container3">
+          <div className="b-presult1-container4">
+            <span className="b-presult1-text">Your readings are normal</span>
+            <span className="b-presult1-text01">AI Diagnosis</span>
+            <span className="b-presult1-text02">
               <span>
                 AI diagnosis on this reading will be shown here
                 <span
@@ -28,9 +26,9 @@ function BpReadingsPop(props){
             </span>
           </div>
         </div>
-        <div className="b-presult-container5">
-          <div className="b-presult-container6">
-           <svg width="85" height="85" viewBox="0 0 85 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div className="b-presult1-container5">
+          <div className="b-presult1-container6">
+            <svg width="85" height="85" viewBox="0 0 85 85" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g filter="url(#filter0_d_419_1579)">
         <rect x="20.7734" y="10.832" width="43.4388" height="43.4388" rx="5" fill="white" />
     </g>
@@ -57,33 +55,26 @@ function BpReadingsPop(props){
 </svg>
           </div>
         </div>
-        <h1 className="b-presult-text07">Test successfully taken!</h1>
-        <span className="b-presult-text08">Diastolic</span>
-        <span className="b-presult-text09">{props.data.diaf}</span>
-        <span className="b-presult-text10">{props.data.sys}</span>
-        <label className="b-presult-text11">mm Hg</label>
-        <label className="b-presult-text12">mm Hg</label>
-        <span className="b-presult-text13">Systolic</span>
-        <button type="button" className="b-presult-button button" onClick={props.onContinueClick}>
+        <span className="b-presult1-text07">{props.data.hr}</span>
+        <h1 className="b-presult1-text08">Test successfully taken!</h1>
+        <span className="b-presult1-text09">Heart Rate</span>
+        <span className="b-presult1-text10">{props.data.spo2}</span>
+        <label className="b-presult1-text11">BPM</label>
+        <label className="b-presult1-text12">%</label>
+        <span className="b-presult1-text13">Blood Oxygen</span>
+        <button type="button" className="b-presult1-button button" onClick={props.onContinueClick}>
           Check again
         </button>
-        <h3 className="b-presult-text14">Blood pressure reading</h3>
-        <button type="button" className="b-presult-button1 button" onClick={props.onExitClick}>
+        <h3 className="b-presult1-text14">SpO2 Reading</h3>
+        <button type="button" className="b-presult1-button1 button" onClick={props.onExitClick}>
           Done
         </button>
+
+
         </div>
-      </div>
-      <style jsx>
-        {`
-          
-        `}
-      </style>
-    </>
-  )
+        </div>
+        </>
+    )
+
 }
-
-
-
-export default BpReadingsPop
-
-
+export default HrReadings

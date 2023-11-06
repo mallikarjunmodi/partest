@@ -40,7 +40,7 @@ const data = [
 function CandleStickGraph(){
   return(<>
 <ScatterChart 
-  width={730} 
+  width={900} 
   height={250}
   margin={{ top: 20, right: 20, bottom: 0, left: 20 }}
 >

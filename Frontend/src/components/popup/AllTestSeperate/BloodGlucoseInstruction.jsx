@@ -30,18 +30,15 @@ function BLoodGlucoseInstruction(props){
                 }}
               />
             </span>
+            <ul>
             <br></br>
+             <li> - <strong>Apply the blood sample</strong> at the edge of the device in an angle.</li>
             <br></br>
-            <br></br>
-            <br></br>
-            <span>Press “start” to begin. and</span>
-            <br></br>
-            <br></br>
-            <span>
-              apply the blood sample at the edge of the device in an angle.
-            </span>
+            <li> - Press <strong>“start”</strong> to begin. and</li>
+            
+            </ul>
           </span>
-          <span className="bginstruction-text10">Instruction page</span>
+          {/* <span className="bginstruction-text10">Instruction </span> */}
           <div className="bginstruction-html-node1">
             <span
               dangerouslySetInnerHTML={{

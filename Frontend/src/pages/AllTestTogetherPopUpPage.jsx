@@ -63,9 +63,12 @@ import api from "../api";
 import CandleStickGraph from "../components/graphs/CandleStickGraph";
 
 import { sendBpSensorValue,sendEcgSensorValue,sendHrSensorValue,sendBtSensorValue,sendDsSensorValue,sendGlSensorValue} from "../url/url";
-import io from "socket.io-client";
+
 import useLocalStorageRef from "../hooks/LocalStorage";
-const socket = io.connect("http://localhost:5000");
+
+
+// pages/index.js
+import socket from './socket.js'; // adjust the path according to your project structure
 
 const AllTestTogetherPopUps = (props) => {
   const [bpData, setBpData] = useState({ sys: 0, dia: 0, pulse: 0 });   // setData({ ...data, sys: event.target.value });

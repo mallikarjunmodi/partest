@@ -62,10 +62,11 @@
   }
   .bgstart-text {
     top: 105px;
-    left: 327px;
+    left: 335px;
     position: absolute;
     font-style: normal;
     font-weight: 500;
+    font-size: 20px;
   }
   .bgstart-container2 {
     top: 158px;

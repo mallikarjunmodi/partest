@@ -14,7 +14,7 @@ function CircularProgressBar(props)
     let values = [0];
     if(sdata.state === "continue")
     {
-      values.push(sdata.dia);
+      values.push(sdata.cuff);
        values.shift();
     }
   return(

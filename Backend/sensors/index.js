@@ -4,12 +4,12 @@ var portName = process.argv[7];
 
 // import SerialPort from 'serialport';
 
-// const port = new SerialPort({
-//       path: "COM4",
-//       baudRate: 115200
+const port = new SerialPort({
+      path: "COM5",
+      baudRate: 115200
       
-//     })
-
-const port =null;    
+      
+    })
+    
 
 export default port;

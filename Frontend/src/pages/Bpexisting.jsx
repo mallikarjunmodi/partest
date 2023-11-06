@@ -10,26 +10,35 @@ import {Link,Navigate,useNavigate,useParams,useLocation} from "react-router-dom"
 import api from '../api';
 import CandleStickGraph from "../components/graphs/CandleStickGraph";
 import { sendBpSensorValue } from '../url/url';
-import io from 'socket.io-client';
 import useLocalStorageRef from "../hooks/LocalStorage";
-const socket=io.connect("http://localhost:5000");
+import Bp_1 from "../components/popup/assets/BP_1.png";
+import Bp_2 from "../components/popup/assets/BP_2.svg";
+import Bp_3 from "../components/popup/assets/BP_3.svg";
+import Bp_4 from "../components/popup/assets/BP_4.svg";
+import Bp_5 from "../components/popup/assets/BP_5.svg";
+import PopUpFrame from "../components/popup/AllTestTogether/PopUpFrame";
+import PopUpFrame2 from "../components/popup/AllTestTogether/PopUpFrame2";
+
+
+import socket from './socket.js'; // adjust the path according to your project structure
+
+// Now you can use the socket instance as needed in your component
 
 
 
 const BloodPressurepopup = (props) => {
-  const [bpData,setBpData]=useState([]);
-  const [popUpSequence, setPopupSequence] = useState("BP_START");
-        if (popUpSequence === "BP_START") return(<BpStartPopUp setinitateTestPopUp={"wear device and press \"start\"."} onExitClick={props.onExitClick} onContinueClick={()=>{setPopupSequence("BP_FETCH");SensorRead((data)=>{setBpData(data); if(data.state==="end"){setPopupSequence("BP_READING")} console.log("bpData",bpData)});}} />);
-        else if (popUpSequence === "BP_FETCH") return (<BloodPressureFetch setinitateTestPopUp={"wear device and press \"start\"."} data={bpData} onExitClick={props.onExitClick} onStopClick={()=>{SensorStop() }}  />);
-        else if (popUpSequence === "BP_READING") return (<BloodPressureReading setinitateTestPopUp={"wear device and press \"start\"."} data={bpData} onExitClick={props.onExitClick} onContinueClick={props.onContinueClick}  />);
- }
+  const [bpData, setBpData] = useState({ sys: 0, dia: 0, pulse: 0 });   // setData({ ...data, sys: event.target.value });
+  const [data, setData] = useState();
+ 
+  const [popUpSequence, setPopupSequence] = useState("BP_1");
+
 
  function SensorStop()
  {
   socket.emit("send_message_Bp",{message:"Stop"});
  }
 
- function  SensorRead(callback){
+ function  SensorRead(callback){  
    console.log(callback);
    socket.emit("send_message_bp",{message:"Start"});
    
@@ -59,31 +68,111 @@ const BloodPressurepopup = (props) => {
         }
         callback(data.data);
       })
+    }
 
-        
+      if (popUpSequence === "BP_1")
+      return (
+        <PopUpFrame
+        style={{ zIndex: 1000}}
+          heading={"How to record Blood Pressure"}
+          instruction={
+            "Sit down in a quiet, comfortable place.  Make sure your feet are flat on the ground and your arm is supported at heart level."
+          }
+          button1={"Next"}
+          image_main={Bp_1}
+          onExitClick={props.onExitClick}
+          onContinueClick={() => {
+            setPopupSequence("BP_2");
+          }}
+        />
+      );
+    else if (popUpSequence === "BP_2")
+      return (
+        <PopUpFrame
+          heading={"How to record Blood Pressure"}
+          instruction={
+            "Position the cuff around your upper arm, two to three fingers width above the bend of your elbow."
+          }
+          button1={"Next"}
+          image_main={Bp_2}
+          onExitClick={props.onExitClick}
+          onContinueClick={() => {
+            setPopupSequence("BP_3");
+          }}
+        />
+      );
+    else if (popUpSequence === "BP_3")
+      return (
+        <PopUpFrame
+          heading={"How to record Blood Pressure"}
+          instruction={
+            "Press the start button on the blood pressure monitor and wait for it to inflate the cuff."
+          }
+          button1={"Next"}
+          image_main={Bp_3}
+          onExitClick={props.onExitClick}
+          onContinueClick={() => {
+            setPopupSequence("BP_4");
+          }}
+        />
+      );
+    else if (popUpSequence === "BP_4")
+      return (
+        <PopUpFrame
+          heading={"How to record Blood Pressure"}
+          instruction={
+            "As the cuff inflates, you may feel some pressure on your arm, but it shouldn't be uncomfortable."
+          }
+          button1={"Next"}
+          image_main={Bp_4}
+          onExitClick={props.onExitClick}
+          onContinueClick={() => {
+            setPopupSequence("BP_5");
+          }}
+        />
+      );
+    else if (popUpSequence === "BP_5")
+      return (
+        <PopUpFrame
+          heading={"How to record Blood Pressure"}
+          instruction={
+            "Wait for the monitor to deflate the cuff, and record your systolic and diastolic blood pressure readings."
+          }
+          button1={"Start test"}
+          image_main={Bp_5}
+          onExitClick={props.onExitClick}
+          onContinueClick={()=>{setPopupSequence("BP_FETCH");SensorRead((data)=>{setBpData(data); if(data.state==="end"){setPopupSequence("BP_READING")} console.log("bpData",bpData)});}} 
+        />
+      );
+      // else if (popUpSequence === "BP_START") return(<BpStartPopUp setinitateTestPopUp={"wear device and press \"start\"."} onExitClick={props.onExitClick} onContinueClick={()=>{setPopupSequence("BP_FETCH");SensorRead((data)=>{setBpData(data); if(data.state==="end"){setPopupSequence("BP_READING")} console.log("bpData",bpData)} ,"");}} />);
+      else if (popUpSequence === "BP_FETCH") return (<BloodPressureFetch setinitateTestPopUp={"wear device and press \"start\"."} data={bpData} onExitClick={props.onExitClick} onStopClick={()=>{SensorStop() }}  />);
+ 
+  
+  
+  
+    else if (popUpSequence === "BP_READING")
+      return (
+        <BloodPressureReading
+          setinitateTestPopUp={'wear device and press "start".'}
+          data={bpData}
+          onExitClick={props.onExitClick}
+           onContinueClick={() => {
+            setPopupSequence("BP_1");
+           }}
+        />
+      );
+     
  }
 
 
-//  api.post(
-//   sendBpSensorValue,
-//    {name:"230"},
-//    {
-//    headers: {
-//      "Content-Type":"application/json",
-//      "Accept": "*/*",
-//     }
-//  }).then(res => { 
-//       console.log(res.status, res.data)
-      
-//  }
-//  )
+
 
 
 
 
  
 
-function Bpexisting(){
+function Bpexisting(props){
   const [user, setUser, removeUser] = useLocalStorageRef("user");
   const [initateTestPopUp,setinitateTestPopUp]=useState(false);
   const navigate = useNavigate();
@@ -106,7 +195,9 @@ function Bpexisting(){
      {/* <Bp_Start_Pop_Up/> */}
       <div className="bpexisting-container">
         <div className="bpexisting-container1">
-     {initateTestPopUp && <BloodPressurepopup userData={user} onExitClick={()=>setinitateTestPopUp(false)} />}
+         
+     {initateTestPopUp && <BloodPressurepopup className="popup" userData={user} onExitClick={()=>setinitateTestPopUp(false)} />}
+     
            {/* {initateTestPopUp && <div className="initate__test__pop__up"><BpStartPopUp setinitateTestPopUp={"wear device and press \"start\"."} onExitClick={()=>setinitateTestPopUp(false)} onContinueClick={()=>setinitateTestPopUp(false)}  /></div>}  */}
           <span className="bpexisting-text" onClick={(e)=>{
                  navigate("/dashboard",); 
@@ -153,7 +244,7 @@ function Bpexisting(){
               />
             </div>
           </div>
-          <div className="bpexisting-container3">
+          {/* <div className="bpexisting-container3">
             <span className="bpexisting-text19">
               <span>BPM</span>
               <br></br>
@@ -167,7 +258,7 @@ function Bpexisting(){
               <br></br>
               <br></br>
             </span>
-          </div>
+          </div> */}
           <div className="bpexisting-graph">
             <span className="bpexisting-text29">
               <span>Your previous Blood Pressure &amp; Pulse readings</span>
@@ -286,7 +377,7 @@ function Bpexisting(){
             </span>
           </div>
          
-          <Header rootClassName="header-root-class-name4"><h1>dsdsd</h1></Header>
+          <Header rootClassName="header-root-class-name4"><h1></h1></Header>
           <div className="bpexisting-code-embed1">
             <span
               dangerouslySetInnerHTML={{

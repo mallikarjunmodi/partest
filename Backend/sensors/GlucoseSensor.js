@@ -8,91 +8,31 @@ var portName = process.argv[7];
 //import SensorSchema from '../Models/SensorSchema.js';
 //var Buffer =  require('buffer/').Buffer;
 
-// const port = new SerialPort({
-//     path: "COM3",
-//     baudRate: 9600
-//   })
-const port=null;
+const port = new SerialPort({
+    path: "COM5",
+    baudRate: 9600
+  })
 
-const command = ["0XBE", "0XB0", "0X01", "0Xc0", "0X36"];
 
 class GlucoseSensor {
   onSensor(callback) {
     console.log("onSensorgl");
-
-    let values = [0,70,82,76,72,84,88,90,92,97,99 ]; // Array to store the sensor values
-   
-    const reading = [
-      {
-        sys: 0,
-        dia: 0,
-       
-        state: "continue"
-      },
-      {
-        sys:70 ,
-        dia: 70,
-        pulse: 30,
-        state: "continue"
-      },
-      {
-        sys: 82,
-        dia: 82,
-        pulse :20,
-        state: "continue"
-      },
-      {
-        sys:76 ,
-        dia: 76,
-        pulse: 30,
-        state: "continue"
-      },
-      {
-        sys: 72,
-        dia: 72,
-        pulse :20,
-        state: "continue"
-      },
-      {
-        sys:84 ,
-        dia: 84,
-        pulse: 30,
-        state: "continue"
-      },
-      {
-        sys: 84,
-        dia: 84,
-        pulse :20,
-        state: "continue"
-      },
-      {
-        sys:88 ,
-        dia: 88,
-        pulse: 30,
-        state: "continue"
-      }, {
-        sys: 86,
-        dia: 86,
-        pulse :20,
-        state: "continue"
-      },
-      {
-        sys:90 ,
-        dia: 90,
-        pulse: 30,
-        state: "end"
+    port.on('data', async function(data) {
+      console.log("data",data);
+      const readings={
+        sys:data[6],
+        cuff:data[5]*2,
+        diaf:data[8],
+        state:data[3]===181 && data[4]===75 ? "Start" :data[2]===2 && data[3]===180 ? "CONTINUE" : "continue",
+        timer: (data[2] === 2 && data[3] === 180) ? data[4] : "0", 
+        mgdl: (data[2] === 2 && data[3] === 180) ? data[4] : "0"
       }
-    ]
-    // Simulating sensor readings
-   for ( let i = 0; i < 10; i++) {
-      setTimeout(() => {
-        let readings=values[i];
-  
-        callback(reading[i]);// the readings array as the callback parameter
-        
-      }, i * 1000); // Delay of 1 second between each reading
+
+
+
+    })
     }
-  }
+
 
   offSensor() {
     console.log("offSensorgl");

@@ -9,6 +9,7 @@ import BloodGlucoseStart from "../components/popup/AllTestSeperate/BloodGlucoseS
 import BloodGlucoseInstruction from "../components/popup/AllTestSeperate/BloodGlucoseInstruction";
 import BloodGlucoseStop from "../components/popup/AllTestSeperate/BloodGlucoseStop";
 import BloodGlucoseReading from "../components/popup/AllTestSeperate/BgReadingsPop";
+import Bginstruction2 from "../components/popup/AllTestSeperate/BLoodGlucoseInstruction2";  
 import {Link,Navigate,useNavigate,useParams} from "react-router-dom"
 import LineGraph from '../components/graphs/LineGraph';
 import { sendGlSensorValue } from '../url/url';
@@ -21,6 +22,7 @@ const BloodGlucosepopup = (props) => {
   const [glData,setGlData]=useState([]);
   const [popUpSequence, setPopupSequence] = useState("BG_START");
         if (popUpSequence === "BG_START") return(<BloodGlucoseStart setinitateTestPopUp={"wear device and press \"start\"."} onExitClick={props.onExitClick} onContinueClick={()=>{setPopupSequence("BG_INST");}} />);
+        else if (popUpSequence === "BG_INST") return (<Bginstruction2 setinitateTestPopUp={"wear device and press \"start\"."} onExitClick={props.onExitClick} onContinueClick={()=>{setPopupSequence("BG_END");SensorRead((data)=>{setGlData(data); if(data.state==="end"){setPopupSequence("BG_READING")} console.log("glData",glData)});}}/>);
         else if (popUpSequence === "BG_INST") return (<BloodGlucoseInstruction setinitateTestPopUp={"wear device and press \"start\"."} onExitClick={props.onExitClick} onContinueClick={()=>{setPopupSequence("BG_END");SensorRead((data)=>{setGlData(data); if(data.state==="end"){setPopupSequence("BG_READING")} console.log("glData",glData)});}}/>);
         else if (popUpSequence === "BG_END") return (<BloodGlucoseStop setinitateTestPopUp={"wear device and press \"start\"."} data={glData} onExitClick={props.onExitClick} onContinueClick={props.onContinueClick}  />);
         else if (popUpSequence === "BG_READING") return (<BloodGlucoseReading setinitateTestPopUp={"wear device and press \"start\"."} data={glData} onExitClick={props.onExitClick} onContinueClick={props.onContinueClick}  />);

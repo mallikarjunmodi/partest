@@ -19,7 +19,7 @@ function BloodGlucoseStart(props){
           <button className="bgstart-button1 button" onClick={props.onContinueClick}>
              Continue     
           </button>
-          <span className="bgstart-text">When was the last meal you had?</span>
+          <span className="bgstart-text">When was your last meal?</span>
           <div className="bgstart-container2">
             <input
               type="radio"
@@ -28,7 +28,7 @@ function BloodGlucoseStart(props){
               className="bgstart-radiobutton"
             />
             <span className="bgstart-text01">
-              <span>2 Hours Back</span>
+              <span> &gt; 8 Hours</span>
               <br></br>
               <br></br>
             </span>
@@ -41,7 +41,7 @@ function BloodGlucoseStart(props){
               className="bgstart-radiobutton1"
             />
             <span className="bgstart-text05">
-              <span>2 Hours Back</span>
+              <span> &gt; 2 Hours </span>
               <br></br>
               <br></br>
             </span>
@@ -54,7 +54,7 @@ function BloodGlucoseStart(props){
               className="bgstart-radiobutton2"
             />
             <span className="bgstart-text09">
-              <span>2 Hours Back</span>
+              <span> &lt; 2 Hours</span>
               <br></br>
               <br></br>
             </span>

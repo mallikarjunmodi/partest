@@ -2,16 +2,16 @@
             position: absolute;
             width: 130px;
             height: 25.5px;
-            left: 20px;
-            top: 68px;
+            left: 12.5px;
+            top: 64px;
            }
            
            .sp-o2-stop-result-bottom{
             position: absolute;
             width: 32px;
             height: 40px;
-            left: 75px;
-            top: 90px;
+            left: 65px;
+            top: 83px;
 
             font-family: 'Manrope';
             font-style: normal;
@@ -28,7 +28,7 @@
             position: absolute;
             width: 32px;
             height: 40px;
-            left: 75px;
+            left: 65px;
             top: 20px;
 
             font-family: 'Manrope';
@@ -58,9 +58,20 @@
             display: flex;
             position: relative;
             align-items: flex-start;
+            justify-content: center;
             flex-direction: column;
-            z-index:99;
+            z-index: 1000;
           }
+          .-pin-container {
+            width: 64rem;
+            position:absolute;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color:rgba(0, 0, 0, 0.354);
+            z-index: 200;
+            }
           .sp-o2stop-container1 {
             top: 0px;
             flex: 0 0 auto;
@@ -145,8 +156,8 @@
             font-weight: 400;
           }
           .sp-o2stop-text5 {
-            top: 110px;
-            left: 35px;
+            top: 100px;
+            left: 40px;
             color: #263540;
             position: absolute;
             font-size: 10px;
@@ -155,8 +166,8 @@
             
           }
           .sp-o2stop-text6 {
-            top: 110px;
-            left: 110px;
+            top: 118px;
+            left: 80px;
             color: #263540;
             position: absolute;
             font-size: 10px;
@@ -164,8 +175,8 @@
             font-weight: 400;
           }
           .sp-o2stop-text7 {
-            top: 44px;
-            left: 112px;
+            top: 55px;
+            left: 90px;
             color: #263540;
             position: absolute;
             font-size: 10px;

@@ -2,6 +2,8 @@
 import { isObjectIdOrHexString } from 'mongoose';
 import port from './index.js';
 
+
+
 const command = ["0X55", "0XAA", "0X04", "0X03", "0X1","0XF7"];
 const bpOn =  ["0X55", "0XAA", "0X04", "0X02", "0X01" , "0XF8"] ;
 const ecgOn  = ["0x55", "0xAA" ,"0x04","0x01" ,"0x01", "0xF9"];
@@ -14,6 +16,7 @@ const nibpoff  = ["0x55", "0xAA"," 0x04", "0x02", "0x00", "0xF9"]
 const ecgwaveoff  = ["0x55", "0xAA" ,"0x04","0xFB" ,"0x00", "0x00"];
 const spwaveoff  = ["0x55", "0xAA" ,"0x04","0xFE" ,"0x00", "0xFD"];
 const respoff  = ["0x55", "0xAA" ,"0x04","0xFF" ,"0x00", "0xFC"];
+
 
 // const readings={
 //     spo2:0,

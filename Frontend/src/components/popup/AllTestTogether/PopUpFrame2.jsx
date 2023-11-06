@@ -5,6 +5,8 @@ import BP_1 from "../assets/BP_1.png"
 const PopUpFrame2 = (props) => {
   return (
     <>
+    <div className="-pin-container"> 
+  
       <div className="-pinstruction-container">
         <span className="-pinstruction-text">{props.heading}</span>
         <span className="-pinstruction-text1">{props.instruction}</span>
@@ -47,14 +49,27 @@ const PopUpFrame2 = (props) => {
           className="-pinstruction-image3"
         /> */}
       </div>
+      </div>
       <style jsx>
         {`
+          .-pin-container {
+            width: 64rem;
+            position:absolute;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color:rgba(0, 0, 0, 0.354);
+            z-index: 200;
+          }
           .-pinstruction-container {
             width: 942.88px;
             height: 428px;
             display: flex;
+            z-index: 1000;
             position: relative;
             align-items: flex-start;
+            border-radius: 16px;
             flex-direction: column;
             justify-content: center;
             background-color: #ffffff;
