@@ -10,6 +10,8 @@ import BloodGlucoseInstruction from "../components/popup/AllTestSeperate/BloodGl
 import BloodGlucoseStop from "../components/popup/AllTestSeperate/BloodGlucoseStop";
 import BloodGlucoseReading from "../components/popup/AllTestSeperate/BgReadingsPop";
 import Bginstruction2 from "../components/popup/AllTestSeperate/BLoodGlucoseInstruction2";  
+import BgResults from "../components/popup/AllTestSeperate/BgResults";
+import BgReading from '../components/popup/AllTestSeperate/BLoodGlucoseReading';
 import {Link,Navigate,useNavigate,useParams} from "react-router-dom"
 import LineGraph from '../components/graphs/LineGraph';
 import { sendGlSensorValue } from '../url/url';
@@ -21,11 +23,12 @@ const socket=io.connect("http://localhost:5000");
 const BloodGlucosepopup = (props) => {
   const [glData,setGlData]=useState([]);
   const [popUpSequence, setPopupSequence] = useState("BG_START");
-        if (popUpSequence === "BG_START") return(<BloodGlucoseStart setinitateTestPopUp={"wear device and press \"start\"."} onExitClick={props.onExitClick} onContinueClick={()=>{setPopupSequence("BG_INST");}} />);
-        else if (popUpSequence === "BG_INST") return (<Bginstruction2 setinitateTestPopUp={"wear device and press \"start\"."} onExitClick={props.onExitClick} onContinueClick={()=>{setPopupSequence("BG_END");SensorRead((data)=>{setGlData(data); if(data.state==="end"){setPopupSequence("BG_READING")} console.log("glData",glData)});}}/>);
-        else if (popUpSequence === "BG_INST") return (<BloodGlucoseInstruction setinitateTestPopUp={"wear device and press \"start\"."} onExitClick={props.onExitClick} onContinueClick={()=>{setPopupSequence("BG_END");SensorRead((data)=>{setGlData(data); if(data.state==="end"){setPopupSequence("BG_READING")} console.log("glData",glData)});}}/>);
-        else if (popUpSequence === "BG_END") return (<BloodGlucoseStop setinitateTestPopUp={"wear device and press \"start\"."} data={glData} onExitClick={props.onExitClick} onContinueClick={props.onContinueClick}  />);
-        else if (popUpSequence === "BG_READING") return (<BloodGlucoseReading setinitateTestPopUp={"wear device and press \"start\"."} data={glData} onExitClick={props.onExitClick} onContinueClick={props.onContinueClick}  />);
+        if (popUpSequence === "BG_START") return(<BloodGlucoseStart  onExitClick={props.onExitClick} onContinueClick={()=>{setPopupSequence("BG_INST");SensorRead((data)=>{setGlData(data); if(data.state==="Start"){setPopupSequence("BG_INST2")} ; if(data.state==="reading"){setPopupSequence("BG_Read")}; if(data.state==="result"){setPopupSequence("BG_result")}; console.log("glData",glData)});}} />);
+        else if (popUpSequence === "BG_INST") return (<Bginstruction2   data={glData} onExitClick={props.onExitClick} />);
+        else if (popUpSequence === "BG_INST2") return (<BloodGlucoseInstruction  data={glData} onExitClick={props.onExitClick} />);
+        else if (popUpSequence === "BG_Read") return (<BgReading  data={glData} onExitClick={props.onExitClick}/>);
+        else if (popUpSequence === "BG_result") return (<BgResults  data={glData} onExitClick={props.onExitClick}/>);
+        // else if (popUpSequence === "BG_READING") return (<BloodGlucoseReading data={glData} onExitClick={props.onExitClick} onContinueClick={props.onContinueClick}  />);
  }
 
 

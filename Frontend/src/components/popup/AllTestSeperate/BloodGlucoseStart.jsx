@@ -28,7 +28,7 @@ function BloodGlucoseStart(props){
               className="bgstart-radiobutton"
             />
             <span className="bgstart-text01">
-              <span> &gt; 8 Hours</span>
+              <span> <strong>&gt;</strong> 8 Hours</span>
               <br></br>
               <br></br>
             </span>

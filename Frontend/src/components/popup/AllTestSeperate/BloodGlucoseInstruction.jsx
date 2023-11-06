@@ -18,25 +18,16 @@ function BLoodGlucoseInstruction(props){
           <button className="bginstruction-button button" onClick={props.onExitClick} >
             Exit
           </button>
-          <button className="bginstruction-button1 button" onClick={props.onContinueClick}>
-            Start
-          </button>
-          <span className="bginstruction-text">
-            <span>
-              After poking your finger with the lancing device,
-              <span
-                dangerouslySetInnerHTML={{
-                  __html: ' ',
-                }}
-              />
-            </span>
-            <ul>
-            <br></br>
-             <li> - <strong>Apply the blood sample</strong> at the edge of the device in an angle.</li>
-            <br></br>
-            <li> - Press <strong>“start”</strong> to begin. and</li>
-            
-            </ul>
+<span id="texybody" className="bginstruction1-text">
+          <span>Prick the side of your fingertip with the Lancet</span>
+          <br></br>
+          <br></br>
+          <span>
+            Touch and hold the edge of the test strip to the drop of blood
+          </span>
+        </span>
+          <span id="heading" className="bginstruction1-text5">
+            Wash and dry your hands well
           </span>
           {/* <span className="bginstruction-text10">Instruction </span> */}
           <div className="bginstruction-html-node1">

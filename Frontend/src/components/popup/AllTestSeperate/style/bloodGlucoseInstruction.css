@@ -60,12 +60,13 @@
     justify-content: center;
     background-color: #1ab58f;
   }
-  .bginstruction-text {
-    top: 140px;
-    left: 237px;
+  .bginstruction1-text {
+    top: 175px;
+    left: 190px;
     width: 366px;
     height: 148px;
     position: absolute;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
   }
@@ -80,4 +81,12 @@
     top: 48px;
     left: 649px;
     position: absolute;
+  }
+  .bginstruction1-text5 {
+    top: 128px;
+    left: 190px;
+    position: absolute;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
   }
