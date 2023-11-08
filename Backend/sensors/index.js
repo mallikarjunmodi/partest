@@ -6,7 +6,7 @@ var portName = process.argv[7];
 
 const port = new SerialPort({
       path: "COM5",
-      baudRate: 9600
+      baudRate: 115200,
       
       
     })

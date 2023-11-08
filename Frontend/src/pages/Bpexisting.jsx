@@ -193,10 +193,12 @@ function Bpexisting(props){
   return (
     <>
      {/* <Bp_Start_Pop_Up/> */}
+     {initateTestPopUp && <BloodPressurepopup className="popup" userData={user} onExitClick={()=>setinitateTestPopUp(false)} />}
+
       <div className="bpexisting-container">
         <div className="bpexisting-container1">
          
-     {initateTestPopUp && <BloodPressurepopup className="popup" userData={user} onExitClick={()=>setinitateTestPopUp(false)} />}
+     
      
            {/* {initateTestPopUp && <div className="initate__test__pop__up"><BpStartPopUp setinitateTestPopUp={"wear device and press \"start\"."} onExitClick={()=>setinitateTestPopUp(false)} onContinueClick={()=>setinitateTestPopUp(false)}  /></div>}  */}
           <span className="bpexisting-text" onClick={(e)=>{
@@ -376,7 +378,6 @@ function Bpexisting(props){
               <br></br>
             </span>
           </div>
-         
           <Header rootClassName="header-root-class-name4"><h1></h1></Header>
           <div className="bpexisting-code-embed1">
             <span

@@ -31,7 +31,7 @@ if(diagnosisPage==="Digital Stethoscope")
 }  
 if(diagnosisPage==="ECG")
 {
-   navigate("/");
+   navigate("/ecg");
 } 
 if(diagnosisPage==="ENT")
 {
@@ -51,7 +51,9 @@ if(diagnosisPage==="ENT")
         <UpperBar rootClassName="upper-bar-root-class-name3"></UpperBar>
         <div className="all-tests-container1">
           <button   type="button"
-            onclick={()=>{}} className="all-tests-button button">
+             className="all-tests-button button"onClick={()=>{
+              setDiagnosisPage("ECG")
+            }}>
             <span>ECG</span>
             <img
               alt="pastedImage"

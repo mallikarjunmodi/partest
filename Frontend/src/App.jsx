@@ -19,6 +19,8 @@ import AllTestTogetherPopUpPage from './pages/AllTestTogetherPopUpPage';
 import HomeGraph from './pages/HomeGraph';
 import VideoConf  from './pages/VideoConf';
 import Schedule from "./pages/appointment/Schedule"
+import Ecg from "./pages/Ecg"
+
 function App() {
   return (
     <>
@@ -36,6 +38,7 @@ function App() {
          {/* <Route path='/dashboard' element={<Dashboard />} />  */}
          <Route path='/phonenumber' element={<PhoneNumber />} /> 
          <Route path='/bpexisting' element={<Bpexisting/>}/>
+         <Route path='/ecg' element={<Ecg/>}/>
          <Route path='/heartrateexisting' element={<HeartRateExisting/>}/>
          <Route path='/bodytemperatureexisting' element={<BodyTemperatureExisting/>}/>
          <Route path='/bloodglucoseexisting' element={<BloodGlucoseExisting/>}/>
