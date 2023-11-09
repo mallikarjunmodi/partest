@@ -18,14 +18,14 @@ const EcgPop = (props) => {
   
    function SensorStop()
    {
-    socket.emit("send_message_Bp",{message:"Stop"});
+    socket.emit("send_message_ecg",{message:"Stop"});
    }
   
    function  SensorRead(callback){  
      console.log(callback);
-     socket.emit("send_message_bp",{message:"Start"});
+     socket.emit("send_message_ecg",{message:"Start"});
      
-      socket.on("bp_data",(data)=>{
+      socket.on("ecg_data",(data)=>{
         console.log("data: " , data.data);
         
         if(data.data.state==="end")

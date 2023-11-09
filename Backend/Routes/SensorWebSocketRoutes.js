@@ -5,6 +5,7 @@ import glSensor from "../sensors/GlucoseSensor.js";
 import tpSensor from "../sensors/TemperatureSensor.js";
 import hrSensor from "../sensors/HeartRateSensor.js";
 import dsSensor from "../sensors/DigitalStetoscopeSensor.js";
+import ecgSensor from "../sensors/ECGSensor.js";
 const SensorRouter = Router();
 import {Server} from "socket.io";
 import UserSchema from "../Models/User.js"
@@ -44,6 +45,26 @@ export default function(httpServer)
       }
 
     })
+
+     //ecg sensor
+     socket.on("send_message_ecg",(data)=>{
+      console.log(data.message);
+      if(data.message==="Start")
+      {
+        ecgSensor.onSensor((sensorData)=>{
+          socket.emit("ecg_data",{data:sensorData})
+        })
+       
+      }
+      if(data.message==="Stop")
+      {
+        ecgSensor.offSensor((sensorData)=>{
+          socket.emit("ecg_data",{data:"Sensor stopped"})
+        })
+      }
+
+  })
+  
 //glucose sensor
     socket.on("send_message_gl",(data)=>{
       console.log(data.message);
@@ -120,24 +141,7 @@ export default function(httpServer)
         }
 
     })
- //ecg sensor
-    socket.on("send_message_ecg",(data)=>{
-      console.log(data.message);
-      if(data.message==="Start")
-      {
-        dsSensor.onSensor((sensorData)=>{
-          socket.emit("ecg_data",{data:sensorData})
-        })
-       
-      }
-      if(data.message==="Stop")
-      {
-        dsSensor.offSensor((sensorData)=>{
-          socket.emit("ecg_data",{data:"Sensor stopped"})
-        })
-      }
 
-  })
 
 
    
