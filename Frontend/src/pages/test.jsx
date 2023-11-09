@@ -101,7 +101,7 @@ const EcgGraph = (props) => {
 
     return (
         <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-          <p >hello : {data.sys}</p>
+          <p >hello </p>
             <button 
                 onClick={toggleSensor} 
                 className="mb-4 px-6 py-3 text-lg text-white bg-blue-500 rounded cursor-pointer hover:bg-blue-600 focus:outline-none"

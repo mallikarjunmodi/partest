@@ -31,12 +31,12 @@ class EcgSensor {
           console.log("data",data);
     
        
-          const readings={
-            sys:data[4],
+          const readings = 
+           data[4]*8400
              
 
             
-          }
+          
           callback(readings);
          })
     }    
