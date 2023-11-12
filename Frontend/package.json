@@ -26,6 +26,7 @@
     "recharts": "^2.1.16",
     "serialport": "^10.5.0",
     "socket.io-client": "^4.7.2",
+    "uws": "^10.148.1",
     "wavesurfer.js": "^7.4.5",
     "web-vitals": "^2.1.4",
     "zego-express-engine-webrtc": "^2.24.5",
