@@ -27,7 +27,7 @@ if(diagnosisPage==="Blood Glucose")
 }  
 if(diagnosisPage==="Digital Stethoscope")
 {
-   navigate("/videoconf");
+   navigate("/stethoscope");
 }  
 if(diagnosisPage==="ECG")
 {

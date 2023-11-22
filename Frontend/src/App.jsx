@@ -17,7 +17,7 @@ import BodyTemperatureExisting from './pages/BodyTemperatureExisting';
 import BloodGlucoseExisting from './pages/BloodGlucoseExisting';
 import AllTestTogetherPopUpPage from './pages/AllTestTogetherPopUpPage';
 import HomeGraph from './pages/HomeGraph';
-import Test1 from './pages/test1';
+import Stethoscope from './pages/Stethoscope';
 import Tests from './pages/test';
 import VideoConf  from './pages/VideoConf';
 import Schedule from "./pages/appointment/Schedule"
@@ -48,7 +48,7 @@ function App() {
          <Route path='/AllTestTogether' element={<AllTestTogetherPopUpPage/>}/> 
          <Route path='/videoconf' element={<VideoConf/>}/> 
          <Route path='/test' element={<Tests/>}/> 
-         <Route path='/test1' element={<Test1/>}/> 
+         <Route path='/stethoscope' element={<Stethoscope/>}/> 
          <Route path='/schedule' element={<Schedule/>}/> 
             {/* <Route path='/home' element ={<Home />}/>
             <Route path='/login' element={<Login />} />

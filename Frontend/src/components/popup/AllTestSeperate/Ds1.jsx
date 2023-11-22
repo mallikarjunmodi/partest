@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-function App() {
+function Ds1() {
   const [mediaRecorder, setMediaRecorder] = useState(null);
   const [status, setStatus] = useState('idle');
   const [mediaBlob, setMediaBlob] = useState(null);
@@ -126,6 +126,8 @@ function App() {
   };
 
   return (
+    <div className="absolute bg-white top-0 left-0 right-0 bottom-0 mx-auto justify-center flex items-center w-[1024px] h-[600px]  text-left text-xs text-black font-manrope z-50">
+
     <div>
       <p>Status: {status}</p>
       <button onClick={startRecording} disabled={status === 'recording'}>Start Recording</button>
@@ -133,7 +135,14 @@ function App() {
       <button onClick={playRecording} disabled={!mediaBlob || isPlaying}>Play Recording</button>
       <canvas ref={canvasRef} width="800" height="150" style={{ border: "1px solid black" }} />
     </div>
+    </div>
   );
 }
 
-export default App;
+export default Ds1;
+
+
+
+
+
+
