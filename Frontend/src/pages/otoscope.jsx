@@ -1,6 +1,6 @@
 import { useReactMediaRecorder } from "react-media-recorder";
 
-function App(){
+function Otoscope(){
   const { status, startRecording, stopRecording, mediaBlobUrl } =  useReactMediaRecorder({ video: true });
 
   return (
@@ -13,4 +13,4 @@ function App(){
   );
 }
 
-export default App;
+export default Otoscope;

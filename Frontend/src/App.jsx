@@ -18,7 +18,8 @@ import BloodGlucoseExisting from './pages/BloodGlucoseExisting';
 import AllTestTogetherPopUpPage from './pages/AllTestTogetherPopUpPage';
 import HomeGraph from './pages/HomeGraph';
 import Stethoscope from './pages/Stethoscope';
-import Tests from './pages/test';
+import Otoscope from './pages/Otoscope';
+import Tests from './pages/test'; 
 import VideoConf  from './pages/VideoConf';
 import Schedule from "./pages/appointment/Schedule"
 import Ecg from "./pages/Ecg"
@@ -49,6 +50,7 @@ function App() {
          <Route path='/videoconf' element={<VideoConf/>}/> 
          <Route path='/test' element={<Tests/>}/> 
          <Route path='/stethoscope' element={<Stethoscope/>}/> 
+         <Route path='/otoscope' element={<Otoscope/>}/> 
          <Route path='/schedule' element={<Schedule/>}/> 
             {/* <Route path='/home' element ={<Home />}/>
             <Route path='/login' element={<Login />} />

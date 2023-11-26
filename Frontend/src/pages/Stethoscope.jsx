@@ -1,5 +1,7 @@
 import React from "react";
 import Digi from "../components/popup/AllTestSeperate/Ds1";
+import Dig from "../components/popup/AllTestSeperate/Ds";
+
 import  { useEffect, useState } from 'react';
 import {Link,Navigate,useNavigate,useParams,useLocation} from "react-router-dom"
 import api from '../api';
@@ -14,6 +16,18 @@ const DsPopUp = (props) =>{
   return (
     <Digi
       onExitClick={props.onExitClick}
+      onContinueClick={() => {
+        setPopupSequence("Ds-2");
+      }}
+    />
+  );
+  if (popUpSequence === "Ds-2")
+  return (
+    <Dig
+      onExitClick={props.onExitClick}
+      onContinueClick={() => {
+        setPopupSequence("Ds-3");
+      }}
     />
   );
   }

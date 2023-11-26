@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-function Ds1() {
+const DSRecording = () => {
   const [mediaRecorder, setMediaRecorder] = useState(null);
   const [status, setStatus] = useState('idle');
   const [mediaBlob, setMediaBlob] = useState(null);
-  const [isPlaying, setIsPlaying] = useState(false);
   const audioContextRef = useRef(new AudioContext());
   const analyserRef = useRef(null);
   const animationRef = useRef(null);
@@ -26,36 +25,36 @@ function Ds1() {
     const canvas = canvasRef.current;
     const canvasCtx = canvas.getContext("2d");
     const analyser = analyserRef.current;
-  
+
     analyser.fftSize = 2048;
     const bufferLength = analyser.frequencyBinCount;
     const dataArray = new Uint8Array(bufferLength);
-  
+
     const WIDTH = canvas.width;
     const HEIGHT = canvas.height;
     const sliceWidth = WIDTH * 1.0 / bufferLength;
-  
+
     let lastDrawnX = WIDTH; // Start drawing from the right
-  
+
     const draw = () => {
       animationRef.current = requestAnimationFrame(draw);
-  
+
       analyser.getByteTimeDomainData(dataArray);
-  
+
       // Move existing waveform to the left
       const shiftedImage = canvasCtx.getImageData(1, 0, WIDTH, HEIGHT);
       canvasCtx.putImageData(shiftedImage, 0, 0);
       canvasCtx.clearRect(WIDTH - 1, 0, 1, HEIGHT);
-  
+
       // Draw new data on the right
       let x = lastDrawnX;
       for (let i = 0; i < 1; i++) { // Draw only one slice of data at a time
         let v = dataArray[i] / 128.0;
         let y = v * HEIGHT / 2;
-  
+
         canvasCtx.fillStyle = 'rgb(200, 200, 200)';
         canvasCtx.fillRect(x, 0, sliceWidth, HEIGHT);
-  
+
         canvasCtx.lineWidth = 2;
         canvasCtx.strokeStyle = 'rgb(0, 0, 0)';
         canvasCtx.beginPath();
@@ -64,12 +63,9 @@ function Ds1() {
         canvasCtx.stroke();
       }
     };
-  
+
     draw();
   };
-  
-  
-
 
   const startRecording = () => {
     if (mediaRecorder) {
@@ -95,54 +91,39 @@ function Ds1() {
     }
   };
 
-  const playRecording = () => {
-    if (mediaBlob && !isPlaying) {
-      setIsPlaying(true);
-      const canvas = canvasRef.current;
-      const canvasCtx = canvas.getContext("2d");
-      canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
-
-      const reader = new FileReader();
-      reader.readAsArrayBuffer(mediaBlob);
-      reader.onloadend = () => {
-        const arrayBuffer = reader.result;
-        audioContextRef.current.decodeAudioData(arrayBuffer, (audioBuffer) => {
-          const playbackSource = audioContextRef.current.createBufferSource();
-          playbackSource.buffer = audioBuffer;
-          playbackSource.connect(analyserRef.current);
-          analyserRef.current.connect(audioContextRef.current.destination);
-          playbackSource.start(0);
-          drawWaveform();
-          
-          playbackSource.onended = () => {
-            setIsPlaying(false);
-            const canvas = canvasRef.current;
-            const canvasCtx = canvas.getContext("2d");
-            canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
-          };
-        });
-      };
-    }
-  };
-
   return (
-    <div className="absolute bg-white top-0 left-0 right-0 bottom-0 mx-auto justify-center flex items-center w-[1024px] h-[600px]  text-left text-xs text-black font-manrope z-50">
-
-    <div>
-      <p>Status: {status}</p>
-      <button onClick={startRecording} disabled={status === 'recording'}>Start Recording</button>
-      <button onClick={stopRecording} disabled={status !== 'recording'}>Stop Recording</button>
-      <button onClick={playRecording} disabled={!mediaBlob || isPlaying}>Play Recording</button>
-      <canvas ref={canvasRef} width="800" height="150" style={{ border: "1px solid black" }} />
+    <div className="absolute flex items-center justify-center h-[600px] z-[200]" style={{ width: '64rem', backgroundColor: 'rgba(0, 0, 0, 0.354)' }}>
+    <div className="relative bg-gray-200 w-full h-[600px] text-center text-[32px] text-mediumaquamarine font-manrope">
+      <div className="absolute top-[77px] left-[46px] w-[942.9px] h-[428px]">
+        <div className="absolute top-[0px] left-[0px] w-[942.9px] h-[428px]">
+          <div className="absolute top-[0px] left-[0px] rounded-2xl bg-white w-[942.9px] h-[428px]" />
+          <button onClick={startRecording} disabled={status === 'recording'} className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[345px] left-[391px] w-40 h-[54px]">
+            <div className="absolute top-[0px] left-[0px] w-40 h-[54px]">
+              <div className="absolute top-[0px] left-[0px] rounded-3xs bg-indianred shadow-[0px_10px_20px_rgba(36,_99,_15,_0.16)] w-40 h-[54px]" />
+              <div className="absolute top-[14.6px] left-[62px] text-base font-semibold font-manrope text-white text-center inline-block w-[37px] h-[24.8px]">
+                Start
+              </div>
+            </div>
+          </button>
+          <button onClick={stopRecording} disabled={status !== 'recording'} className="cursor-pointer [border:none] p-0 bg-[transparent] absolute top-[345px] left-[491px] w-40 h-[54px]">
+            <div className="absolute top-[0px] left-[0px] w-40 h-[54px]">
+              <div className="absolute top-[0px] left-[0px] rounded-3xs bg-indianred shadow-[0px_10px_20px_rgba(36,_99,_15,_0.16)] w-40 h-[54px]" />
+              <div className="absolute top-[14.6px] left-[62px] text-base font-semibold font-manrope text-white text-center inline-block w-[37px] h-[24.8px]">
+                Stop
+              </div>
+            </div>
+          </button>
+          <div className="absolute top-[133px] left-[0px] bg-#ffffff w-[943px] h-[163px]">
+            <canvas ref={canvasRef} width="943" height="163" style={{ border: "0px solid black" }} />
+          </div>
+          <div className="absolute top-[43px] left-[395px] font-semibold">
+            Listening
+          </div>
+        </div>
+      </div>
     </div>
     </div>
   );
-}
+};
 
-export default Ds1;
-
-
-
-
-
-
+export default DSRecording;

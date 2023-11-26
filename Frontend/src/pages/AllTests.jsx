@@ -35,7 +35,7 @@ if(diagnosisPage==="ECG")
 } 
 if(diagnosisPage==="ENT")
 {
-   navigate("/videoconf");
+   navigate("/otoscope");
 } 
 
 
