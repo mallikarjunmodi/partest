@@ -1,16 +1,15 @@
 import express from 'express';
-import SensorSchema from "./Models/SensorSchema.js";
-import UserSchema from "./Models/User.js";
+// import SensorSchema from "./Models/SensorSchema.js";
+// import UserSchema from "./Models/User.js";
 import http from 'http';
-import dotenv from 'dotenv';
-import useAppRoutes from './Routes/appRoutes.js';
+// import dotenv from 'dotenv';
+// import useAppRoutes from './Routes/appRoutes.js';
 import SensorRoutes from './Routes/SensorWebSocketRoutes.js';
 import bodyParser from 'body-parser';
 import cors from "cors";
 // import sensorRead from './sensors/bpSensor.js';
 // import realm from './database.js';
-import Realm from "realm";
-dotenv.config();
+// dotenv.config();
 
 
 
@@ -18,10 +17,10 @@ dotenv.config();
 
 
 
-const realm = await Realm.open({
-      schema: [SensorSchema,UserSchema],
-      path: "testDatabase",
-    });
+// const realm = await Realm.open({
+//       schema: [SensorSchema,UserSchema],
+//       path: "testDatabase",
+//     });
     
   
     // let user1, user2;
@@ -44,7 +43,7 @@ const realm = await Realm.open({
     //     });
         
     // }); 
-    const tasks = realm.objects("sensorschema");
+    // const tasks = realm.objects("sensorschema");
     // console.log(`The lists of tasks are: ${tasks.map((task) => task. _idUser)}`);
 
 
@@ -85,7 +84,7 @@ app.use(express.json());
 
 
 
-useAppRoutes(app);
+// useAppRoutes(app);
 
 const httpServer = http.createServer(app);
 
@@ -97,4 +96,4 @@ SensorRoutes(httpServer);
 
 
 
-httpServer.listen(5000,()=>{console.log("Server started on port 5000")});
+httpServer.listen(5005,()=>{console.log("Server started on port 5000")});

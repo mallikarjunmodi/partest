@@ -2,7 +2,7 @@
 import { isObjectIdOrHexString } from 'mongoose';
 
 
-import port from './index.js';
+// import port from './index.js';
 
 const ecgoff  = ["0x55", "0xAA" ,"0x04","0x01" ,"0x00", "0xFA"];
 const spoff  = ["0x55", "0xAA" ,"0x04","0x03" ,"0x00", "0xF8"];
@@ -18,31 +18,40 @@ class EcgSensor {
     
       onSensor(callback) {
         console.log("onSensorecg");
-        port.write(spoff);
-        port.write(nibpoff);
-        port.write(tempoff);
-        port.write(spwaveoff);
-        port.write(respoff);
-        port.write(ecgoff);
-        port.write(ecgwave);
+        // port.write(spoff);
+        // port.write(nibpoff);
+        // port.write(tempoff);
+        // port.write(spwaveoff);
+        // port.write(respoff);
+        // port.write(ecgoff);
+        // port.write(ecgwave);
+
+
+        setInterval(() => {
+          const randomReading = Math.floor(Math.random() * 301); // 0 - 300
+          callback(randomReading);    
+      }, 4); // 1000 milliseconds / 250 packets = 4 milliseconds
 
     
-        port.on('data', async function(data) {
-          console.log("data",data);
+
+
+
+        // port.on('data', async function(data) {
+        //   console.log("data",data);
     
        
-          const readings = 
-           data[4]*8400
+        //   const readings = 
+        //    data[4]*8400
              
 
             
           
-          callback(readings);
-         })
+        //   callback(readings);
+        //  })
     }    
  
   offSensor(){
-    port.write(ecgwaveoff)
+    // port.write(ecgwaveoff)
       console.log("offSensorecg");
   }
 
